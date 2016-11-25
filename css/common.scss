@@ -1,0 +1,116 @@
+@charset "utf-8";
+@import 'base.scss';
+
+/** common valiable */
+
+$background: #555;
+$margin: 50px;
+$padding: 0;
+$rowWidth: 1020px;
+$rowPadding: 0;
+$color2: #d8c58e;
+$color3: #fff;
+
+/** mixin & function */
+
+@mixin row($w: $rowWidth, $p: $padding) {
+  .row {
+    position: relative;
+    width: $w;
+    //min-height: 823px;
+    padding: $p;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+@mixin font($f,$we) {
+  font-family: $f;
+  font-weight: $we;
+}
+
+@mixin clear {
+  clear: both;
+  display: block;
+  content: '';
+}
+
+/** start common css */
+
+.container {min-height:760px; padding:0 0 70px 0;*zoom:1}
+.container:after{clear:both; display:block; content:''}
+.sound_rs {display:block; text-indent:-999999999px}
+/* skip navigation */
+#skipnav {position:absolute; top:0; left:22px; z-index:10000}
+#skipnav a {position:absolute; top:-9999px; z-index:10000}
+#skipnav a:hover,
+#skipnav a:active,
+#skipnav a:focus {top:0; width:180px; color:#000; font-weight:bold; text-align:center; display:inline-block; background-color:#fff; border:3px solid #ddd; padding:5px 0;}
+@include row;
+
+
+/* common popup 팝업 레이아웃 */
+.common_popup {
+  position:fixed;
+  left:50%;
+  top:50%;
+  display:none;
+  padding: 40px 30px;
+  background:#fff;
+  text-align:center;
+  z-index:2000;
+  /*popup btn*/
+  .btn_wrap {
+    a {
+    display:block;
+    margin:0 auto;
+    padding:14px 0 14px 0;
+    color:#fff;
+    font-weight:bold;
+    background:#25517c;
+    text-align:center;
+    } 
+  } 
+  .pop_titbox {
+    position:relative;
+    span.cancle{
+      position:absolute;
+      top:-20px;
+      right:0;
+      display:block;
+      width:20px;
+      height:20px;
+      a.btn{
+        display:block;
+        height:100%;
+        background:url('../images/common/cancle01.gif') no-repeat 0 0;
+      }
+    }
+  }
+  /*cnt*/
+  .pop_cntbox {
+    border-top:3px solid #616161;
+  }  
+}
+.pop_dimde {
+  position:fixed;
+  left:0;
+  top:0;
+  display:none;
+  width:100%;
+  height:100%;
+  background:#555;
+  opacity:0.7;
+  filter:alpha(opacity=70);
+  z-index:600;
+}
+.pop_overflow {
+  overflow:hidden;
+}
+
+/*popup login_box01 */
+.common_popup.pop_login01 {
+    width:540px;
+    margin:-360px 0 0 -300px;
+    color:#666;
+}
