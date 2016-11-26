@@ -1,15 +1,15 @@
 $(function(){
 
 	 comPopup = {
-		speed : 300,
-		popDimde :'pop_dimde',
-		dimParent : 'body',
+		speed : 300, // duration
+		popDimde :'pop_dimde', // dimde class
+		dimParent : 'body', // wrap or boby setting
 		open : function(arg) {
 			/*common*/
 			if(!$(this.dimParent).hasClass('pop_active')){
 				$(this.dimParent).addClass('pop_active');
 			    $(this.dimParent).append($('<div/>', {
-			        'class': 'pop_dimde'
+			        'class': this.popDimde
 			    }));
 			}
 			if(!$(arg).children().hasClass('active')){
