@@ -28,7 +28,8 @@ $(function(){
 			var objThis = this;
 			/*action*/
 			$(arg).fadeOut(this.speed,function(){
-				$('.'+objThis.popDimde).slideUp(this.speed);
+				$('.'+objThis.popDimde).slideUp({duration: this.speed, queue: false});
+				$('.'+objThis.popDimde).fadeOut({duration: this.speed, queue: false});
 			});
 			$(this.dimParent).removeClass('pop_overflow');
 		},
