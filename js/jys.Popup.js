@@ -1,7 +1,8 @@
 $(function(){
+
 	 comPopup = {
 		speed : 300,
-		popDimde :'.pop_dimde',
+		popDimde :'pop_dimde',
 		dimParent : 'body',
 		open : function(arg) {
 			/*common*/
@@ -15,8 +16,9 @@ $(function(){
 				$(arg).children().addClass('active');
 				$(arg).children().append("<span class='cancle'><a href='javascript:void(0)' title='취소' class='btn' onclick=comPopup.close(" + "'" + arg + "'" +")></a></span>");
 			}
+			this.handlers(arg);
 			/*action*/
-			$(this.popDimde).fadeIn(this.speed,function(){
+			$('.'+this.popDimde).fadeIn(this.speed,function(){
 				$(arg).fadeIn(this.speed);
 			});
 			$(this.dimParent).addClass('pop_overflow');
@@ -26,10 +28,16 @@ $(function(){
 			var objThis = this;
 			/*action*/
 			$(arg).fadeOut(this.speed,function(){
-				$(objThis.popDimde).slideUp(this.speed);
+				$('.'+objThis.popDimde).slideUp(this.speed);
 			});
 			$(this.dimParent).removeClass('pop_overflow');
+		},
+		handlers : function(arg) {
+			objThis = this;
+			$('.'+this.popDimde).on('click',function(e){
+				objThis.close(arg);
+				$(this).unbind(e);
+			});
 		}
-	}	
-})
-
+	};
+});
