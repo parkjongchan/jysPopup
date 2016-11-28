@@ -25,7 +25,7 @@ $(function(){
 
 		},
 		close : function(arg) {
-			var objThis = this;
+			var objThis = this; 
 			/*action*/
 			$(arg).fadeOut(this.speed,function(){
 				$('.'+objThis.popDimde).slideUp({duration: this.speed, queue: false});
